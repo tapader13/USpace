@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useSearchParams } from 'next/navigation';
+// import { useSearchParams } from 'next/navigation';
 import { Loader2 } from 'lucide-react';
 import useCartStore from '@/store/useCartStore';
 import Confetti from 'react-confetti';
@@ -32,8 +32,15 @@ interface Order {
   }[];
 }
 const ThankYou = () => {
-  const searchParams = useSearchParams();
-  const orderId = searchParams.get('order_id') || '';
+  // const searchParams = useSearchParams();
+  // const orderId = searchParams.get('order_id') || '';
+  const [orderId, setOrderId] = useState<string | null>(null);
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const titleParam = queryParams.get('order_id');
+    setOrderId(titleParam);
+  }, []);
   const [data, setData] = useState<Order | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
