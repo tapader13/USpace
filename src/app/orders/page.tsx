@@ -28,7 +28,7 @@ const OrdersPage = async () => {
         </div>
       ) : (
         <div className='grid gap-6'>
-          {orders.map((order, index) => (
+          {orders.map((order: any, index) => (
             <div
               key={index}
               className='border border-gray-200 rounded-lg p-6 bg-white shadow-sm'
@@ -55,7 +55,7 @@ const OrdersPage = async () => {
                   Products
                 </h3>
                 <ul className='space-y-2'>
-                  {order.products.map((product, idx) => (
+                  {order.products.map((product: any, idx) => (
                     <li
                       key={idx}
                       className='flex items-center gap-4 p-4 border rounded-lg'
