@@ -2,7 +2,7 @@ import axios from 'axios';
 import Link from 'next/link';
 import React from 'react';
 const API_URL =
-  process.env.NEXT_PUBLIC_URl || 'http://localhost:3000/api/allcat';
+  process.env.NEXT_PUBLIC_URl || 'http://localhost:3000/api/items';
 const getAllSpace = async () => {
   try {
     const response = await axios.get(API_URL);
