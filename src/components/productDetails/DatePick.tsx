@@ -7,30 +7,17 @@ import { Product } from '@/app/types/cartType';
 import { useToast } from '@/hooks/use-toast';
 
 const DatePick = ({ data }: { data: Product }) => {
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [startTime, setStartTime] = useState<Date | null>(null);
-  const [endTime, setEndTime] = useState<Date | null>(null);
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
+  const [startTime, setStartTime] = useState<Date | undefined>(undefined);
+  const [endTime, setEndTime] = useState<Date | undefined>(undefined);
   const [error, setError] = useState<string>('');
   const { toast } = useToast();
   const now = new Date();
   const { addToCart } = useCartStore();
 
-  // const getMinTime = () => {
-  //   if (selectedDate) {
-  //     return new Date(
-  //       selectedDate.getFullYear(),
-  //       selectedDate.getMonth(),
-  //       selectedDate.getDate(),
-  //       0,
-  //       0
-  //     );
-  //   }
-  //   return null;
-  // };
   const getMinTime = () => {
     if (selectedDate) {
       if (selectedDate.toDateString() === now.toDateString()) {
-        // If today, set the minimum time to the current time
         return new Date(
           now.getFullYear(),
           now.getMonth(),
@@ -39,7 +26,6 @@ const DatePick = ({ data }: { data: Product }) => {
           now.getMinutes()
         );
       } else {
-        // For future dates, start from 00:00
         return new Date(
           selectedDate.getFullYear(),
           selectedDate.getMonth(),
@@ -49,8 +35,9 @@ const DatePick = ({ data }: { data: Product }) => {
         );
       }
     }
-    return null;
+    return undefined; // Changed to return undefined
   };
+
   const handleRent = () => {
     if (!selectedDate || !startTime || !endTime) {
       setError('Please select all fields');
@@ -86,9 +73,10 @@ const DatePick = ({ data }: { data: Product }) => {
       endTime: formattedEndTime,
     });
 
-    setSelectedDate(null);
-    setStartTime(null);
-    setEndTime(null);
+    // Use undefined instead of null
+    setSelectedDate(undefined);
+    setStartTime(undefined);
+    setEndTime(undefined);
     setError('');
     toast({
       description: 'Product added to cart',
@@ -104,9 +92,9 @@ const DatePick = ({ data }: { data: Product }) => {
         <DatePicker
           selected={selectedDate}
           onChange={(date: Date | null) => {
-            setSelectedDate(date);
-            setStartTime(null);
-            setEndTime(null);
+            setSelectedDate(date !== null ? date : undefined); // Handle null case
+            setStartTime(undefined); // Use undefined instead of null
+            setEndTime(undefined); // Use undefined instead of null
           }}
           minDate={new Date()}
           placeholderText='Select Date..'
@@ -123,8 +111,8 @@ const DatePick = ({ data }: { data: Product }) => {
           <DatePicker
             selected={startTime}
             onChange={(time: Date | null) => {
-              setStartTime(time);
-              setEndTime(null);
+              setStartTime(time !== null ? time : undefined); // Handle null case
+              setEndTime(undefined);
             }}
             showTimeSelect
             showTimeSelectOnly
@@ -152,7 +140,7 @@ const DatePick = ({ data }: { data: Product }) => {
           <DatePicker
             selected={endTime}
             onChange={(time: Date | null) => {
-              setEndTime(time);
+              setEndTime(time !== null ? time : undefined); // Handle null case
             }}
             showTimeSelect
             showTimeSelectOnly

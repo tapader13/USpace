@@ -26,19 +26,21 @@ const ProductDetails = ({ data }: { data: any }) => {
                 {data?.name}
               </h1>
               <div className='mt-4 mb-8'>
-                {data?.description?.split('. ').map((sentence, index) => (
-                  <p key={index} className='mb-4 text-fifth'>
-                    {sentence.trim() +
-                      (index < data.description.split('. ').length - 1
-                        ? '.'
-                        : '')}
-                  </p>
-                ))}
+                {data?.description
+                  ?.split('. ')
+                  .map((sentence: any, index: any) => (
+                    <p key={index} className='mb-4 text-fifth'>
+                      {sentence.trim() +
+                        (index < data.description.split('. ').length - 1
+                          ? '.'
+                          : '')}
+                    </p>
+                  ))}
               </div>
               <hr className='mb-4 bg-first' />
               <h2 className='text-3xl font-semibold mb-6'>Awesome Features</h2>
               <div className='grid grid-cols-2 gap-x-4 gap-y-5'>
-                {data?.features?.map((feature, index) => (
+                {data?.features?.map((feature: any, index: any) => (
                   <div className='flex items-center gap-4' key={index}>
                     <img
                       className='w-10 h-10'
@@ -52,7 +54,7 @@ const ProductDetails = ({ data }: { data: any }) => {
               <hr className='mb-4 mt-14 bg-first' />
               <h2 className='text-3xl font-semibold mb-6'>Renting rules</h2>
               <div className=' space-y-5'>
-                {data?.renting_roles?.map((rent, index) => (
+                {data?.renting_roles?.map((rent: any, index: any) => (
                   <p key={index} className='mb-4 list-item text-fifth'>
                     {rent}
                   </p>
@@ -93,7 +95,7 @@ const ProductDetails = ({ data }: { data: any }) => {
               <hr className='mb-4 mt-14 bg-first' />
               <h2 className='text-3xl font-semibold mb-6'>Amenities</h2>
               <div className=' space-y-5'>
-                {data?.amenities?.map((amnt, index) => (
+                {data?.amenities?.map((amnt: any, index: any) => (
                   <p key={index} className='mb-4 list-item text-fifth'>
                     Amenities: {amnt}
                   </p>

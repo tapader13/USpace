@@ -5,10 +5,36 @@ import { useSearchParams } from 'next/navigation';
 import { Loader2 } from 'lucide-react';
 import useCartStore from '@/store/useCartStore';
 import Confetti from 'react-confetti';
+interface Order {
+  amount: number;
+  isPaid: string;
+  shippingAddress: {
+    name: string;
+    street: string;
+    postalCode: string;
+    city: string;
+  };
+  billingAddress: {
+    name: string;
+    street: string;
+    postalCode: string;
+    city: string;
+  };
+  products: {
+    product: {
+      image: string[];
+    };
+    name: string;
+    rentalDate: string;
+    startTime: string;
+    endTime: string;
+    quantity: number;
+  }[];
+}
 const ThankYou = () => {
   const searchParams = useSearchParams();
   const orderId = searchParams.get('order_id') || '';
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<Order | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const { clearCart } = useCartStore();
@@ -116,7 +142,7 @@ const ThankYou = () => {
             Products in your order
           </h3>
           <div className='mt-4 grid gap-6'>
-            {products.map((product, index) => (
+            {products?.map((product: any, index) => (
               <div
                 key={index}
                 className='flex items-center gap-4 p-4 border rounded-lg'

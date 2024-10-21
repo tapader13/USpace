@@ -45,7 +45,32 @@ const formSchema = z.object({
   image4: z.instanceof(File).optional(),
 });
 
-const ArrayTextareaField = ({ label, index, field }) => (
+interface ArrayTextareaFieldProps {
+  label: string; // Use string instead of any
+  index: number; // The index of the field
+  field: {
+    name: string; // Name of the field
+    onChange: (e: React.ChangeEvent<HTMLTextAreaElement>) => void; // Function to handle change
+    onBlur: () => void; // Function to handle blur event
+    value: string; // The current value of the field
+  }; // Extend with FieldValues to allow additional properties
+}
+type FormFieldName =
+  | 'name'
+  | 'description'
+  | 'category'
+  | 'price'
+  | 'video'
+  | `features.${number}`
+  | `renting_roles.${number}`
+  | `dimensions.${number}`
+  | `amenities.${number}`
+  | `image${1 | 2 | 3 | 4}`;
+const ArrayTextareaField = ({
+  label,
+  index,
+  field,
+}: ArrayTextareaFieldProps) => (
   <FormItem>
     <FormLabel>
       <span className='font-medium'>{`${label} ${index + 1}`}</span>
@@ -322,7 +347,7 @@ const ItemsPage = () => {
               <FormField
                 key={index}
                 control={form.control}
-                name={`image${index + 1}`}
+                name={`image${index + 1}` as FormFieldName}
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>

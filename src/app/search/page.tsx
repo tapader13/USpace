@@ -12,7 +12,7 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { Slider } from '@/components/ui/slider';
 import axios from 'axios';
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
+// import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 
 const categories = [
@@ -31,8 +31,15 @@ const categories = [
 ];
 
 const SearchPage = () => {
-  const srcParams = useSearchParams();
-  const title = srcParams.get('title');
+  // const srcParams = useSearchParams();
+  // const title = srcParams.get('title');
+  const [title, setTitle] = useState<string | null>(null);
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(window.location.search);
+    const titleParam = queryParams.get('title');
+    setTitle(titleParam);
+  }, []);
 
   const [selectedCategory, setSelectedCategory] = useState('Category (All)');
   const [selectedTitle, setSelectedTitle] = useState(title || '');

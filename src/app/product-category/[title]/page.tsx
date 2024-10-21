@@ -19,7 +19,7 @@ const sortCat = [
 
 const ProductCategory = ({ params }: { params: { title: string } }) => {
   console.log(decodeURI(params.title), 'params');
-  const [allSpace, setAllSpace] = useState(null);
+  const [allSpace, setAllSpace] = useState([]);
   const [selectedSort, setSelectedSort] = useState('Default Sort');
   useEffect(() => {
     const getTileProduct = async () => {
