@@ -4,7 +4,9 @@ import { Button } from '../ui/button';
 import Link from 'next/link';
 const getAllSpace = async () => {
   try {
-    const response = await axios.get('http://localhost:3000/api/items');
+    const response = await axios.get(
+      'https://space-booking-psi.vercel.app/api/items'
+    );
     return response.data.data;
   } catch (error) {
     console.log(error);
@@ -25,24 +27,24 @@ const PopularLocation = async () => {
         </div>
         <div className='grid grid-cols-4 gap-4'>
           {allSpace?.slice(0, 8).map((space: any) => (
-          <Link href={`/product/${space.id}`} key={space.id}>
-              <div className='relative group  ' >
-              <div className='h-[300px] cursor-pointer relative w-full overflow-hidden'>
-                <img
-                  className='w-full h-full group-hover:scale-125 transition-all duration-500 group-hover:bg-black/50 '
-                  src={space.image[0]}
-                  alt=''
-                />
-                <div className='absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
-              </div>
+            <Link href={`/product/${space.id}`} key={space.id}>
+              <div className='relative group  '>
+                <div className='h-[300px] cursor-pointer relative w-full overflow-hidden'>
+                  <img
+                    className='w-full h-full group-hover:scale-125 transition-all duration-500 group-hover:bg-black/50 '
+                    src={space.image[0]}
+                    alt=''
+                  />
+                  <div className='absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500'></div>
+                </div>
 
-              <h4 className=' font-bold my-1 cursor-pointer hover:text-third transition-colors duration-300'>
-                {space.name.length > 33
-                  ? space.name.slice(0, 33) + '...'
-                  : space.name}
-              </h4>
-              <h6 className='text-fourth'>${space.price}.00/Hour</h6>
-            </div>
+                <h4 className=' font-bold my-1 cursor-pointer hover:text-third transition-colors duration-300'>
+                  {space.name.length > 33
+                    ? space.name.slice(0, 33) + '...'
+                    : space.name}
+                </h4>
+                <h6 className='text-fourth'>${space.price}.00/Hour</h6>
+              </div>
             </Link>
           ))}
         </div>

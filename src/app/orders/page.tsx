@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const getOrders = async (email: string) => {
   const response = await axios.get(
-    `http://localhost:3000/api/orders?email=${email}`
+    `https://space-booking-psi.vercel.app/api/orders?email=${email}`
   );
   return response.data.data;
 };

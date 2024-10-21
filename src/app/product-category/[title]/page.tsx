@@ -26,7 +26,7 @@ const ProductCategory = ({ params }: { params: { title: string } }) => {
       try {
         if (params.title) {
           const response = await axios.get(
-            `http://localhost:3000/api/category?cat=${decodeURI(
+            `https://space-booking-psi.vercel.app/api/category?cat=${decodeURI(
               params.title
             ).replace(/20%/g, '/')}&sort=${selectedSort}`
           );
