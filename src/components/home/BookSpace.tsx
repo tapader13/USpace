@@ -1,12 +1,12 @@
 import axios from 'axios';
 import Link from 'next/link';
 import React from 'react';
-const API_URL =
-  process.env.NEXT_PUBLIC_URl ||
-  'https://space-booking-psi.vercel.app/api/items';
+
 const getAllSpace = async () => {
   try {
-    const response = await axios.get(API_URL);
+    const response = await axios.get(
+      `https://space-booking-psi.vercel.app/api/items`
+    );
     return response.data.data;
   } catch (error) {
     console.log(error);
