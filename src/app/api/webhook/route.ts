@@ -2,7 +2,7 @@ import Stripe from 'stripe';
 import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 import { headers } from 'next/headers';
-import { sendOrderEmail } from '@/app/mailtrap/email';
+// import { sendOrderEmail } from '@/app/mailtrap/email';
 const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY!);
 export async function POST(req: Request) {
   const payload = await req.text();
@@ -75,7 +75,7 @@ export async function POST(req: Request) {
       });
       console.log(updatedOrder, 'updatedOrder');
       console.log(order, 'order');
-      await sendOrderEmail(email!, order);
+      // await sendOrderEmail(email!, order);
       return NextResponse.json({
         status: 'sucess',
         event: event.type,
