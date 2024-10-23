@@ -15,7 +15,7 @@ const getAllSpace = async () => {
 const PopularLocation = async () => {
   const allSpace: any = await getAllSpace();
   return (
-    <div className='w-10/12 mx-auto'>
+    <div className='sm:w-10/12 mx-auto w-[95%]'>
       <div className='mt-16'>
         <div className='text-center py-12'>
           <h3 className='text-xl uppercase font-bold text-fourth'>
@@ -25,7 +25,7 @@ const PopularLocation = async () => {
             Our most popular locations
           </h1>
         </div>
-        <div className='grid grid-cols-4 gap-4'>
+        <div className='grid sm:grid-cols-4 grid-cols-1 gap-4'>
           {allSpace?.slice(0, 8).map((space: any) => (
             <Link href={`/product/${space.id}`} key={space.id}>
               <div className='relative group  '>

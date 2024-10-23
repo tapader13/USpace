@@ -1,8 +1,8 @@
 const Footer = () => {
   return (
     <div className='bg-seventh  mt-14'>
-      <div className='w-10/12 mx-auto'>
-        <div className='grid py-20 grid-cols-4 gap-6'>
+      <div className='sm:w-10/12 mx-auto'>
+        <div className='grid py-20 sm:grid-cols-4 grid-cols-1 px-2 gap-6'>
           <div>
             <h1 className='text-3xl text-second font-extrabold'>USpace</h1>
             <hr className='my-2 w-1/12 h-1 bg-second' />

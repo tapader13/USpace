@@ -34,15 +34,18 @@ const SearchPage = () => {
   // const srcParams = useSearchParams();
   // const title = srcParams.get('title');
   const [title, setTitle] = useState<string | null>(null);
-
+  const [selectedTitle, setSelectedTitle] = useState('');
   useEffect(() => {
     const queryParams = new URLSearchParams(window.location.search);
+    console.log(queryParams, '23');
     const titleParam = queryParams.get('title');
     setTitle(titleParam);
   }, []);
-
+  useEffect(() => {
+    setSelectedTitle(title || '');
+  }, [title]);
   const [selectedCategory, setSelectedCategory] = useState('Category (All)');
-  const [selectedTitle, setSelectedTitle] = useState(title || '');
+
   const [price, setPrice] = useState(100);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -112,7 +115,7 @@ const SearchPage = () => {
       </div>
       <div>
         <div className='mt-5'>
-          <div className='grid grid-cols-6 gap-4'>
+          <div className='grid sm:grid-cols-6 grid-cols-1 gap-4'>
             {data?.slice(0, 24).map((space: any) => (
               <Link href={`/product/${space.id}`} key={space.id}>
                 <div className='relative group'>

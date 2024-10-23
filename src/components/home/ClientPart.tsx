@@ -3,7 +3,7 @@ import { CiFacebook, CiInstagram, CiTwitter } from 'react-icons/ci';
 const ClientPart = () => {
   return (
     <div className='bg-[#FBF8EF] pb-28'>
-      <div className='grid grid-cols-4 pt-28 gap-6 w-10/12 mx-auto'>
+      <div className='grid sm:grid-cols-4 grid-cols-1 pt-28 gap-6 w-10/12 mx-auto'>
         <div>
           <h1 className='text-4xl font-bold'>Trusted by over 250 clients</h1>
           <p className='text-fourth pt-6'>Experts to level up your business</p>
@@ -36,7 +36,7 @@ const ClientPart = () => {
           <h4 className='text-xl font-bold'>Rental Tents</h4>
         </div>
       </div>
-      <div className='grid grid-cols-4 mt-16 gap-10 w-10/12 mx-auto'>
+      <div className='grid sm:grid-cols-4 grid-cols-1 mt-16 gap-10 w-10/12 mx-auto'>
         <div className='hover:bg-[#fdf8f2] transition-all duration-300 hover:-translate-y-4 hover:shadow-lg'>
           <div className='relative overflow-hidden group'>
             <img src='/asset 29.jpeg' alt='' />

@@ -79,7 +79,7 @@ const Signup = () => {
   };
   return (
     <div className='h-screen w-screen flex items-center justify-center'>
-      <div className='w-1/4 p-5 rounded-lg shadow-md'>
+      <div className='sm:w-1/4 p-5 rounded-lg shadow-md w-[95%]'>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-8'>
             <FormField
@@ -134,7 +134,9 @@ const Signup = () => {
                 </FormItem>
               )}
             />
-            <Button type='submit'>Signup</Button>
+            <Button type='submit' className='px-6 rounded-md py-2'>
+              Signup
+            </Button>
           </form>
         </Form>
         <span className='text-sm mt-1'>

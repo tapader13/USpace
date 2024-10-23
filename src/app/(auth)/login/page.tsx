@@ -8,7 +8,7 @@ const Login = async () => {
   if (user?.user?.email) redirect('/');
   return (
     <div className='h-screen w-screen flex items-center justify-center'>
-      <div className='w-1/4 p-5 rounded-lg shadow-md'>
+      <div className='sm:w-1/4 p-5 w-[95%] rounded-lg shadow-md'>
         <LoginForm />
       </div>
     </div>

@@ -149,7 +149,7 @@ const ItemsPage = () => {
 
   return (
     <div className='flex justify-center items-center min-h-screen bg-gray-100 p-4'>
-      <div className='bg-white p-8 rounded-lg shadow-md w-full max-w-[85%]'>
+      <div className='bg-white p-8 rounded-lg shadow-md w-full sm:max-w-[85%]'>
         <h1 className='text-3xl font-semibold text-center mb-6 text-sixth'>
           Add New Space
         </h1>

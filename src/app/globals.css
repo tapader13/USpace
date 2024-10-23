@@ -57,3 +57,19 @@
 .react-datepicker-wrapper {
     width: 100%;
 }
+
+
+@media (max-width: 640px) {
+
+
+
+
+    .imgGroup {
+        width: 100%;
+        padding: 0;
+    }
+
+    .image {
+        height: 60px;
+    }
+}

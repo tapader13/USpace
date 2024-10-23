@@ -90,7 +90,9 @@ const LoginForm = () => {
           />
 
           <div className='flex justify-center'>
-            <Button type='submit'>Submit</Button>
+            <Button className='px-6 rounded-md py-2' type='submit'>
+              Submit
+            </Button>
           </div>
         </form>
       </Form>
@@ -101,7 +103,7 @@ const LoginForm = () => {
           onClick={async () => {
             await googleLogin();
           }}
-          className='text-white bg-transparent rounded-xl bg-red-400'
+          className='text-white bg-transparent px-5 py-2 rounded-xl bg-red-400'
         >
           Login with Google
         </Button>
