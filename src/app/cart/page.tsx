@@ -58,7 +58,7 @@ const CartPage = () => {
     0
   );
   // console.log(session?.data?.user);
-
+  const user = session?.data?.user;
   const stripePromise = loadStripe(
     process.env.NEXT_PUBLIC_STRIPE_PUBLISABLE_KEY!
   );
@@ -66,11 +66,10 @@ const CartPage = () => {
     const stripe = await stripePromise;
 
     try {
-      const user = session?.data?.user;
       console.log(user, 'user');
-      if (!user?.email) {
+      if (!user) {
         router.push('/login');
-        return;
+        return null;
       }
       console.log('Creating checkout session with data:', {
         items: cart,
