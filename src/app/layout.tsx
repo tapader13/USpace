@@ -20,6 +20,8 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const session = await auth();
+  console.log(session, 'seslay');
+
   return (
     <html lang='en'>
       <body className={`${dm_sans.className} antialiased`}>

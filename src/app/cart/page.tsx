@@ -64,16 +64,18 @@ const CartPage = () => {
         convertIntoNumber(item.startTime, item.endTime),
     0
   );
-
+  console.log(session, 'ses');
   const stripePromise = loadStripe(
     process.env.NEXT_PUBLIC_STRIPE_PUBLISABLE_KEY!
   );
+  console.log(session?.user, 'suser');
   const createStripeSession = async () => {
     const stripe = await stripePromise;
 
     try {
-      const user = session?.data?.user;
+      const user = session?.data?.user || session?.user;
       console.log(user, 'user');
+      console.log(session?.user?.name, 'user2');
       if (!user) {
         router.push('/login');
         return null;
