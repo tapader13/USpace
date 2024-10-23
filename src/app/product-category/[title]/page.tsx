@@ -39,7 +39,7 @@ const ProductCategory = ({ params }: { params: { title: string } }) => {
     getTileProduct();
   }, [params.title, selectedSort]);
   return (
-    <div className='w-10/12 mx-auto'>
+    <div className='sm:w-10/12 w-[95%] mx-auto'>
       <div className=''>
         <div className=' mt-12 mb-16'>
           <h1 className='text-5xl font-bold text-first '>
@@ -69,7 +69,7 @@ const ProductCategory = ({ params }: { params: { title: string } }) => {
             </div>
           </div>
         )}
-        <div className='grid grid-cols-4 gap-4'>
+        <div className='grid sm:grid-cols-4 grid-cols-1 gap-4'>
           {allSpace?.map((space: any) => (
             <Link href={`/product/${space.id}`} key={space.id}>
               <div className='relative group  '>
