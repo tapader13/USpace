@@ -47,6 +47,7 @@ const LoginForm = () => {
         description: response.message,
       });
       // router.refresh();
+      window.location.reload();
       router.push('/');
       form.reset();
     } else {
