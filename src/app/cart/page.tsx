@@ -7,22 +7,23 @@ import {
 } from '@/components/ui/breadcrumb';
 import { Button } from '@/components/ui/button';
 import useCartStore from '@/store/useCartStore';
-import { useSession } from 'next-auth/react';
+// import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import React, { useEffect } from 'react';
+// import React, { useEffect } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { loadStripe } from '@stripe/stripe-js';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
+import { useXSession } from '@/lib/FactoriesProvider';
 const CartPage = () => {
   const { cart, removeFromCart } = useCartStore();
-  const session = useSession();
+  const session = useXSession();
   const router = useRouter();
-  useEffect(() => {
-    if (session?.status === 'unauthenticated') {
-      router.push('/login');
-    }
-  }, [session.status, router]);
+  // useEffect(() => {
+  //   if (session?.status === 'unauthenticated') {
+  //     router.push('/login');
+  //   }
+  // }, [session.status, router]);
   const convertIntoNumber = (
     time1: string | undefined,
     time2: string | undefined

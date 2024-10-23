@@ -46,7 +46,7 @@ const LoginForm = () => {
       toast({
         description: response.message,
       });
-      router.refresh();
+      // router.refresh();
       router.push('/');
       form.reset();
     } else {
