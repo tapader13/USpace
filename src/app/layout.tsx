@@ -23,7 +23,7 @@ export default async function RootLayout({
   return (
     <html lang='en'>
       <body className={`${dm_sans.className} antialiased`}>
-        <SessionProvider>
+        <SessionProvider session={session}>
           <FactoriesProvider propsData={session}>
             {' '}
             <StickyTop />
