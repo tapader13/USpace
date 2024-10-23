@@ -5,7 +5,7 @@ const ProductDetails = ({ data }: { data: any }) => {
   return (
     <div>
       <div>
-        <div className='w-full h-[85vh] grid gap-2 grid-cols-4 grid-rows-2'>
+        <div className='w-full sm:h-[85vh] h-[350px] grid gap-2 grid-cols-4 grid-rows-2'>
           <div className='col-span-2 row-span-2'>
             <img className='w-full h-full' src={data?.image[0]} alt='' />
           </div>
@@ -19,9 +19,9 @@ const ProductDetails = ({ data }: { data: any }) => {
             <img className='w-full h-full' src={data?.image[3]} alt='' />
           </div>
         </div>
-        <div className='w-10/12 mx-auto'>
-          <div className='grid grid-cols-12 gap-10 my-10'>
-            <div className='col-span-8 '>
+        <div className='sm:w-10/12 w-[95%] mx-auto'>
+          <div className='grid sm:grid-cols-12 grid-cols-1 gap-10 my-10'>
+            <div className='sm:col-span-8 '>
               <h1 className='text-4xl font-semibold text-first'>
                 {data?.name}
               </h1>
@@ -39,7 +39,7 @@ const ProductDetails = ({ data }: { data: any }) => {
               </div>
               <hr className='mb-4 bg-first' />
               <h2 className='text-3xl font-semibold mb-6'>Awesome Features</h2>
-              <div className='grid grid-cols-2 gap-x-4 gap-y-5'>
+              <div className='grid grid-cols-2  gap-x-4 gap-y-5'>
                 {data?.features?.map((feature: any, index: any) => (
                   <div className='flex items-center gap-4' key={index}>
                     <img
@@ -103,7 +103,7 @@ const ProductDetails = ({ data }: { data: any }) => {
               </div>
               <hr className='mb-4 mt-14 bg-first' />
               <h2 className='text-3xl font-semibold mb-6'>Video</h2>
-              <div className='w-full h-96 relative'>
+              <div className='w-full sm:h-96 h-72 relative'>
                 <div className='absolute inset-0 z-10 bg-black opacity-80'></div>
                 <video
                   controls
@@ -114,7 +114,7 @@ const ProductDetails = ({ data }: { data: any }) => {
                 ></video>
               </div>
             </div>
-            <div className='col-span-4 border h-fit border-fourth p-10'>
+            <div className='sm:col-span-4 border h-fit border-fourth p-10'>
               <h3 className='text-2xl font-semibold'>${data?.price}.00/Hour</h3>
               {/* <p className='mt-6 text-first font-medium'>Pick a date</p> */}
               <DatePick data={data} />

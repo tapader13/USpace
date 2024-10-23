@@ -108,7 +108,7 @@ const CartPage = () => {
   };
   return (
     <div>
-      <div className='w-10/12 mx-auto'>
+      <div className='sm:w-10/12 w-[95%] mx-auto'>
         <div className='my-20'>
           <h1 className='text-5xl mb-5 font-bold text-first'>Cart</h1>
           <Breadcrumb>
@@ -127,16 +127,21 @@ const CartPage = () => {
           {cart.length > 0 ? (
             cart.map((item, i) => (
               <div className='relative group' key={i}>
-                <div className='w-full grid grid-cols-12 gap-2'>
-                  <div className='col-span-6 flex items-center gap-10'>
+                <div className='w-full grid sm:grid-cols-12 grid-cols-1 gap-2'>
+                  <div className='sm:col-span-6 col-span-1 flex sm:items-center sm:gap-10 gap-2'>
+                    <div className='sm:hidden block'>
+                      <p className='text-sm font-bold text-first'>
+                        {item.name}
+                      </p>
+                    </div>
                     <div>
                       <img
                         className='h-[110px] rounded-lg w-[100px]'
                         src={item.image}
-                        alt=''
+                        alt={item.name}
                       />
                     </div>
-                    <div>
+                    <div className='hidden sm:block'>
                       <p className='text-sm font-bold text-first'>
                         {item.name}
                       </p>
@@ -155,13 +160,13 @@ const CartPage = () => {
                       )}
                     </div>
                   </div>
-                  <div className='col-span-6 grid grid-cols-2'>
-                    <div className='flex justify-end items-center gap-5 '>
-                      <h6 className='text-fourth'>${item.price}.00 </h6>
+                  <div className='sm:col-span-6 col-span-1 grid sm:grid-cols-2 grid-cols-1 sm:gap-0 gap-2'>
+                    <div className='flex sm:justify-end justify-start items-center sm:gap-5 gap-2'>
+                      <h6 className='text-fourth'>${item.price}.00</h6>
                       <h6 className='font-bold text-first'>{item.quantity}</h6>
                     </div>
-                    <div className='flex justify-end items-center'>
-                      <p className=' font-bold text-first'>
+                    <div className='flex sm:justify-end justify-start items-center'>
+                      <p className='font-bold text-first'>
                         $
                         {item.price *
                           item.quantity *
