@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import useCartStore from '@/store/useCartStore';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { loadStripe } from '@stripe/stripe-js';
 import { useRouter } from 'next/navigation';
@@ -17,6 +17,13 @@ import axios from 'axios';
 const CartPage = () => {
   const { cart, removeFromCart } = useCartStore();
   const session = useSession();
+  const router = useRouter();
+  useEffect(() => {
+    if (session?.status === 'loading') return;
+    if (session?.status === 'unauthenticated') {
+      router.push('/login');
+    }
+  }, [status, router]);
   const convertIntoNumber = (
     time1: string | undefined,
     time2: string | undefined
@@ -48,7 +55,7 @@ const CartPage = () => {
 
     return duration;
   };
-  const router = useRouter();
+
   const total = cart.reduce(
     (acc, item) =>
       acc +
@@ -65,10 +72,6 @@ const CartPage = () => {
     const stripe = await stripePromise;
 
     try {
-      if (session.status === 'loading') {
-        console.log('Session is loading...');
-        return;
-      }
       const user = session?.data?.user;
       console.log(user, 'user');
       if (!user) {
