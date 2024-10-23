@@ -131,12 +131,25 @@ const CartPage = () => {
                   <div className='sm:col-span-6 col-span-1 flex sm:items-center sm:gap-10 gap-2'>
                     <div className='sm:hidden block'>
                       <p className='text-sm font-bold text-first'>
-                        {item.name}
+                        Name: {item.name}
                       </p>
+                      {convertIntoNumber(item.startTime, item.endTime) > 1 && (
+                        <>
+                          <p className='text-sm text-fourth my-1'>
+                            {item.rentalDate} [{item.startTime} -&gt;
+                            {item.endTime}]
+                          </p>
+                          <p className='text-sm text-fourth'>
+                            Duration:{' '}
+                            {convertIntoNumber(item.startTime, item.endTime)}{' '}
+                            Hours
+                          </p>
+                        </>
+                      )}
                     </div>
                     <div>
                       <img
-                        className='h-[110px] rounded-lg w-[100px]'
+                        className='h-[110px] hidden sm:block rounded-lg w-[100px]'
                         src={item.image}
                         alt={item.name}
                       />
@@ -161,13 +174,19 @@ const CartPage = () => {
                     </div>
                   </div>
                   <div className='sm:col-span-6 col-span-1 grid sm:grid-cols-2 grid-cols-1 sm:gap-0 gap-2'>
-                    <div className='flex sm:justify-end justify-start items-center sm:gap-5 gap-2'>
-                      <h6 className='text-fourth'>${item.price}.00</h6>
-                      <h6 className='font-bold text-first'>{item.quantity}</h6>
+                    <div className='flex sm:justify-end justify-start items-center sm:flex-row flex-col sm:gap-5 gap-5'>
+                      <h6 className='text-fourth'>
+                        <span className='sm:hidden block'>Price: </span>$
+                        {item.price}.00
+                      </h6>
+                      <h6 className='font-bold text-first'>
+                        <span className='sm:hidden block'>Quantity: </span>
+                        {item.quantity}
+                      </h6>
                     </div>
                     <div className='flex sm:justify-end justify-start items-center'>
                       <p className='font-bold text-first'>
-                        $
+                        <span className='sm:hidden block'>Total Price: </span> $
                         {item.price *
                           item.quantity *
                           convertIntoNumber(item.startTime, item.endTime)}
