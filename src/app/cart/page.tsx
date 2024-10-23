@@ -57,8 +57,7 @@ const CartPage = () => {
         convertIntoNumber(item.startTime, item.endTime),
     0
   );
-  // console.log(session?.data?.user);
-  const user = session?.data?.user;
+
   const stripePromise = loadStripe(
     process.env.NEXT_PUBLIC_STRIPE_PUBLISABLE_KEY!
   );
@@ -66,6 +65,11 @@ const CartPage = () => {
     const stripe = await stripePromise;
 
     try {
+      if (session.status === 'loading') {
+        console.log('Session is loading...');
+        return;
+      }
+      const user = session?.data?.user;
       console.log(user, 'user');
       if (!user) {
         router.push('/login');
