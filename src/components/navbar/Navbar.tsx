@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React from 'react';
 import { Button } from '../ui/button';
 import NavMenu from './NavMenu';
+import NavvarSheet from './NavvarSheet';
 
 const Navbar = ({ sticky }: { sticky: boolean }) => {
   return (
@@ -25,7 +26,7 @@ const Navbar = ({ sticky }: { sticky: boolean }) => {
           />
         </div>
         <div>
-          <ul className='flex items-center space-x-10 font-dm font-medium text-[17px]'>
+          <ul className='sm:flex items-center space-x-10 font-dm font-medium text-[17px] hidden '>
             <li>
               <Link href='/'>Home</Link>
             </li>
@@ -47,6 +48,9 @@ const Navbar = ({ sticky }: { sticky: boolean }) => {
             </Button>
           </Link>
         </div>
+          <div className='sm:hidden block'>
+            <NavvarSheet />
+          </div>
       </div>
     </div>
   );
