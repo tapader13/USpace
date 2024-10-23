@@ -133,19 +133,6 @@ const CartPage = () => {
                       <p className='text-sm font-bold text-first'>
                         Name: {item.name}
                       </p>
-                      {convertIntoNumber(item.startTime, item.endTime) > 1 && (
-                        <>
-                          <p className='text-sm text-fourth my-1'>
-                            {item.rentalDate} [{item.startTime} -&gt;
-                            {item.endTime}]
-                          </p>
-                          <p className='text-sm text-fourth'>
-                            Duration:{' '}
-                            {convertIntoNumber(item.startTime, item.endTime)}{' '}
-                            Hours
-                          </p>
-                        </>
-                      )}
                     </div>
                     <div>
                       <img
@@ -174,18 +161,18 @@ const CartPage = () => {
                     </div>
                   </div>
                   <div className='sm:col-span-6 col-span-1 grid sm:grid-cols-2 grid-cols-1 sm:gap-0 gap-2'>
-                    <div className='flex sm:justify-end justify-start items-center sm:flex-row flex-col sm:gap-5 gap-5'>
-                      <h6 className='text-fourth'>
+                    <div className='flex sm:justify-end justify-start sm:items-center items-start sm:flex-row flex-col sm:gap-5 gap-5'>
+                      <h6 className='text-fourth flex items-center'>
                         <span className='sm:hidden block'>Price: </span>$
                         {item.price}.00
                       </h6>
-                      <h6 className='font-bold text-first'>
+                      <h6 className='font-bold text-first flex items-center'>
                         <span className='sm:hidden block'>Quantity: </span>
                         {item.quantity}
                       </h6>
                     </div>
                     <div className='flex sm:justify-end justify-start items-center'>
-                      <p className='font-bold text-first'>
+                      <p className='font-bold flex items-center text-first'>
                         <span className='sm:hidden block'>Total Price: </span> $
                         {item.price *
                           item.quantity *
@@ -209,7 +196,7 @@ const CartPage = () => {
           )}
         </div>
         {cart.length > 0 && (
-          <div className='bg-[#FDF8F2] mt-20 py-10 px-5 w-1/2 ml-auto'>
+          <div className='bg-[#FDF8F2] mt-20 py-10 w-full px-5 sm:w-1/2 ml-auto'>
             <h3 className='text-2xl'>Cart totals</h3>
             <hr className='mt-2 mb-5' />
             <div className='flex w-1/2 justify-between'>
