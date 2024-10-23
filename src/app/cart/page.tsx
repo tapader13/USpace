@@ -19,11 +19,10 @@ const CartPage = () => {
   const session = useSession();
   const router = useRouter();
   useEffect(() => {
-    if (session?.status === 'loading') return;
     if (session?.status === 'unauthenticated') {
       router.push('/login');
     }
-  }, [status, router]);
+  }, [session.status, router]);
   const convertIntoNumber = (
     time1: string | undefined,
     time2: string | undefined
