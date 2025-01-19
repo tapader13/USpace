@@ -48,9 +48,9 @@ const Navbar = ({ sticky }: { sticky: boolean }) => {
             </Button>
           </Link>
         </div>
-          <div className='sm:hidden block'>
-            <NavvarSheet />
-          </div>
+        <div className='sm:hidden block'>
+          <NavvarSheet />
+        </div>
       </div>
     </div>
   );
