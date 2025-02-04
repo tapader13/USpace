@@ -6,7 +6,7 @@
 ---
 
 ## 📸 Screenshot  
-![Uspace Screenshot](https://i.postimg.cc/D08W0pSH/Screenshot-2025-02-05-022319.png)) 
+![Uspace Screenshot](https://i.postimg.cc/D08W0pSH/Screenshot-2025-02-05-022319.png) 
 
 ---
 
