@@ -115,8 +115,8 @@
 
 ### 1️⃣ Clone the Repository  
 ```sh
-git clone https://github.com/tapader13/uspace.git
-cd uspace
+git clone https://github.com/tapader13/USpace.git
+cd USpace
 ```
 
 ### 2️⃣ Install Dependencies  
