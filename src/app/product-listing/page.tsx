@@ -346,20 +346,51 @@ const ItemsPage = () => {
               <h2 className='text-xl font-bold'>Amenities</h2>
               <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
                 {form.watch('amenities').map((_, index) => (
-                  <FormField
-                    key={index}
-                    control={form.control}
-                    name={`amenities.${index}`}
-                    render={({ field }) => (
-                      <ArrayTextareaField
-                        label='Amenity'
-                        index={index}
-                        field={field}
-                      />
+                  <div key={index} className='flex items-center gap-2'>
+                    <FormField
+                      key={index}
+                      control={form.control}
+                      name={`amenities.${index}`}
+                      render={({ field }) => (
+                        <ArrayTextareaField
+                          label='Amenity'
+                          index={index}
+                          field={field}
+                        />
+                      )}
+                    />
+                    {index >= 1 && (
+                      <Button
+                        type='button'
+                        variant='destructive'
+                        className='bg-red-500 text-white p-2 rounded-lg hover:bg-red-600 transition duration-200'
+                        onClick={() => {
+                          const updatedAmenities = [
+                            ...form.getValues('amenities'),
+                          ];
+                          updatedAmenities.splice(index, 1);
+                          form.setValue('amenities', updatedAmenities);
+                        }}
+                      >
+                        <Minus />
+                      </Button>
                     )}
-                  />
+                  </div>
                 ))}
               </div>
+              <Button
+                type='button'
+                variant='default'
+                className='bg-third mt-2 text-white p-2 rounded-lg hover:bg-sixth transition duration-200'
+                onClick={() => {
+                  form.setValue('amenities', [
+                    ...form.getValues('amenities'),
+                    '',
+                  ]);
+                }}
+              >
+                Add Amenity <Plus />
+              </Button>
             </div>
             {/* Video Upload */}
             <FormField
