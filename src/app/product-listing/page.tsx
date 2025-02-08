@@ -17,7 +17,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { Textarea } from '@/components/ui/textarea';
-
+import { Minus, Plus } from 'lucide-react';
 const formSchema = z.object({
   name: z.string().min(1, 'Name is required'),
   description: z.string().min(1, 'Description is required'),
@@ -97,7 +97,7 @@ const ItemsPage = () => {
       description: '',
       category: '',
       price: '',
-      features: ['', '', '', '', '', ''],
+      features: ['', '', '', '', ''],
       renting_roles: ['', ''],
       dimensions: ['', '', '', '', ''],
       amenities: [''],
@@ -242,20 +242,49 @@ const ItemsPage = () => {
               <h2 className='text-xl font-bold'>Features</h2>
               <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
                 {form.watch('features').map((_, index) => (
-                  <FormField
-                    key={index}
-                    control={form.control}
-                    name={`features.${index}`}
-                    render={({ field }) => (
-                      <ArrayTextareaField
-                        label='Feature'
-                        index={index}
-                        field={field}
-                      />
+                  <div key={index} className='flex items-center gap-2'>
+                    <FormField
+                      key={index}
+                      control={form.control}
+                      name={`features.${index}`}
+                      render={({ field }) => (
+                        <ArrayTextareaField
+                          label='Feature'
+                          index={index}
+                          field={field}
+                        />
+                      )}
+                    />
+                    {form.watch('features').length > 5 && (
+                      <Button
+                        type='button'
+                        variant='destructive'
+                        onClick={() => {
+                          const updatedFeatures = [
+                            ...form.getValues('features'),
+                          ];
+                          updatedFeatures.splice(index, 1);
+                          form.setValue('features', updatedFeatures);
+                        }}
+                      >
+                        -
+                      </Button>
                     )}
-                  />
+                  </div>
                 ))}
               </div>
+              <Button
+                type='button'
+                variant='default'
+                onClick={() => {
+                  form.setValue('features', [
+                    ...form.getValues('features'),
+                    '',
+                  ]);
+                }}
+              >
+                Add Feature <Plus />
+              </Button>
             </div>
             {/* Renting Roles */}
             <div>
