@@ -255,10 +255,11 @@ const ItemsPage = () => {
                         />
                       )}
                     />
-                    {form.watch('features').length > 5 && (
+                    {index >= 5 && (
                       <Button
                         type='button'
                         variant='destructive'
+                        className='bg-red-500 text-white p-2 rounded-lg hover:bg-red-600 transition duration-200'
                         onClick={() => {
                           const updatedFeatures = [
                             ...form.getValues('features'),
@@ -276,6 +277,7 @@ const ItemsPage = () => {
               <Button
                 type='button'
                 variant='default'
+                className='bg-third mt-2 text-white p-2 rounded-lg hover:bg-sixth transition duration-200'
                 onClick={() => {
                   form.setValue('features', [
                     ...form.getValues('features'),
