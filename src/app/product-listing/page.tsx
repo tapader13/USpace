@@ -70,21 +70,34 @@ const ArrayTextareaField = ({
   label,
   index,
   field,
-}: ArrayTextareaFieldProps) => (
-  <FormItem>
-    <FormLabel>
-      <span className='font-medium'>{`${label} ${index + 1}`}</span>
-    </FormLabel>
-    <FormControl>
-      <Textarea
-        placeholder={`Enter ${label.toLowerCase()}`}
-        {...field}
-        className='w-full border rounded-lg focus:ring-2 focus:ring-blue-500'
-      />
-    </FormControl>
-    <FormMessage />
-  </FormItem>
-);
+}: ArrayTextareaFieldProps) => {
+  const dimensionPlaceholder = [
+    'General Dimensions',
+    'Marble Top',
+    'Wood Top',
+    'Glass Top',
+    'Base Material',
+  ];
+  const placeholder =
+    label === 'Dimension'
+      ? dimensionPlaceholder[index]
+      : `Enter ${label.toLowerCase()}`;
+  return (
+    <FormItem>
+      <FormLabel>
+        <span className='font-medium'>{`${label} ${index + 1}`}</span>
+      </FormLabel>
+      <FormControl>
+        <Textarea
+          placeholder={placeholder}
+          {...field}
+          className='w-full border rounded-lg focus:ring-2 focus:ring-blue-500'
+        />
+      </FormControl>
+      <FormMessage />
+    </FormItem>
+  );
+};
 
 const ItemsPage = () => {
   const [images, setImages] = useState<File[]>([]);
@@ -268,7 +281,7 @@ const ItemsPage = () => {
                           form.setValue('features', updatedFeatures);
                         }}
                       >
-                        -
+                        <Minus />
                       </Button>
                     )}
                   </div>
