@@ -406,8 +406,17 @@ const ItemsPage = () => {
                       type='file'
                       accept='video/*'
                       onChange={(e) => {
-                        if (e.target.files?.[0]) {
-                          setVideo(e.target.files[0]);
+                        const file = e.target.files?.[0];
+                        if (file) {
+                          if (file?.size > 5 * 1024 * 1024) {
+                            toast({
+                              description: 'Video size should not exceed 5MB',
+                            });
+                            e.target.value = '';
+                            return;
+                          } else {
+                            setVideo(file);
+                          }
                         }
                       }}
                       className='border rounded-lg'
