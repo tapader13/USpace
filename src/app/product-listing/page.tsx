@@ -18,6 +18,9 @@ import { useState } from 'react';
 import { useToast } from '@/hooks/use-toast';
 import { Textarea } from '@/components/ui/textarea';
 import { Minus, Plus } from 'lucide-react';
+const ReactQuill = dynamic(() => import('react-quill'), { ssr: false });
+import 'react-quill/dist/quill.snow.css';
+import dynamic from 'next/dynamic';
 const formSchema = z.object({
   name: z.string().min(1, 'Name is required'),
   description: z.string().min(1, 'Description is required'),
@@ -101,6 +104,7 @@ const ArrayTextareaField = ({
 
 const ItemsPage = () => {
   const [images, setImages] = useState<File[]>([]);
+  const [reachTxtVal, setReachTxtVal] = useState('');
   const [video, setVideo] = useState<File | null>(null);
   const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
@@ -159,7 +163,7 @@ const ItemsPage = () => {
       setLoading(false);
     }
   };
-
+  console.log(reachTxtVal);
   return (
     <div className='flex justify-center items-center min-h-screen bg-gray-100 p-4'>
       <div className='bg-white p-8 rounded-lg shadow-md w-full sm:max-w-[85%]'>
@@ -198,11 +202,16 @@ const ItemsPage = () => {
                     <span className='font-bold text-xl'>Description</span>
                   </FormLabel>
                   <FormControl>
-                    <Textarea
+                    <ReactQuill
+                      theme='snow'
+                      value={reachTxtVal}
+                      onChange={setReachTxtVal}
+                    />
+                    {/* <Textarea
                       placeholder='Enter item description'
                       {...field}
                       className='w-full min-h-[150px] border rounded-lg focus:ring-2 focus:ring-blue-500'
-                    />
+                    /> */}
                   </FormControl>
                   <FormMessage />
                 </FormItem>
