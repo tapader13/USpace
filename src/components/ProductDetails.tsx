@@ -26,7 +26,17 @@ const ProductDetails = ({ data }: { data: any }) => {
                 {data?.name}
               </h1>
               <div className='mt-4 mb-8'>
-                {data?.description
+                {data?.description ? (
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: data?.description,
+                    }}
+                  />
+                ) : (
+                  <p>No description provided</p>
+                )}
+
+                {/* {data?.description
                   ?.split('. ')
                   .map((sentence: any, index: any) => (
                     <p key={index} className='mb-4 text-fifth'>
@@ -35,7 +45,7 @@ const ProductDetails = ({ data }: { data: any }) => {
                           ? '.'
                           : '')}
                     </p>
-                  ))}
+                  ))} */}
               </div>
               <hr className='mb-4 bg-first' />
               <h2 className='text-3xl font-semibold mb-6'>Awesome Features</h2>

@@ -169,6 +169,17 @@ const ItemsPage = () => {
         <h1 className='text-3xl font-semibold text-center mb-6 text-sixth'>
           Add New Space
         </h1>
+        {/* <div>
+          {form.getValues('description') ? (
+            <div
+              dangerouslySetInnerHTML={{
+                __html: form.getValues('description'),
+              }}
+            />
+          ) : (
+            <p>No description provided</p>
+          )}
+        </div> */}
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
             {/* Name */}
