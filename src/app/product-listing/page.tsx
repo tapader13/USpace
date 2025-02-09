@@ -104,7 +104,6 @@ const ArrayTextareaField = ({
 
 const ItemsPage = () => {
   const [images, setImages] = useState<File[]>([]);
-  const [reachTxtVal, setReachTxtVal] = useState('');
   const [video, setVideo] = useState<File | null>(null);
   const { toast } = useToast();
   const form = useForm<z.infer<typeof formSchema>>({
@@ -163,7 +162,7 @@ const ItemsPage = () => {
       setLoading(false);
     }
   };
-  console.log(reachTxtVal);
+  console.log(form.getValues('description'));
   return (
     <div className='flex justify-center items-center min-h-screen bg-gray-100 p-4'>
       <div className='bg-white p-8 rounded-lg shadow-md w-full sm:max-w-[85%]'>
@@ -204,8 +203,8 @@ const ItemsPage = () => {
                   <FormControl>
                     <ReactQuill
                       theme='snow'
-                      value={reachTxtVal}
-                      onChange={setReachTxtVal}
+                      value={field.value}
+                      onChange={(value) => field.onChange(value)}
                     />
                     {/* <Textarea
                       placeholder='Enter item description'
