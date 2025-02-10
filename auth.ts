@@ -47,7 +47,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         if (!ismatch) {
           throw new CredentialsSignin('password not match');
         }
-        console.log(user);
+        console.log(user, 'user from credentials');
         return {
           id: user.id,
           name: user.username,
