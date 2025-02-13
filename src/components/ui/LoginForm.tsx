@@ -106,7 +106,10 @@ const LoginForm = () => {
       <div className='flex justify-center'>
         <Button
           onClick={async () => {
-            await googleLogin();
+            const callbackUrlgoogle =
+              new URL(window.location.href).searchParams.get('callbackUrl') ||
+              '/';
+            await googleLogin(callbackUrlgoogle);
           }}
           className='text-white bg-transparent px-5 py-2 rounded-xl bg-red-400'
         >

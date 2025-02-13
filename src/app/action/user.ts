@@ -19,6 +19,6 @@ export const credentialLogin = async (email: string, password: string) => {
   }
 };
 
-export const googleLogin = async () => {
-  await signIn('google');
+export const googleLogin = async (callbackUrlgoogle: string) => {
+  await signIn('google', { callbackUrl: callbackUrlgoogle });
 };
