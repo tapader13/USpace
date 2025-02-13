@@ -15,6 +15,7 @@ import { useToast } from '@/hooks/use-toast';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
@@ -47,8 +48,12 @@ const LoginForm = () => {
         description: response.message,
       });
       // router.refresh();
-      window.location.reload();
-      router.push('/');
+      // window.location.reload();
+      const callbackUrl = new URL(window.location.href).searchParams.get(
+        'callbackUrl'
+      );
+      router.push(callbackUrl || '/');
+      // router.push('/');
       form.reset();
     } else {
       toast({

@@ -3,7 +3,8 @@ import Google from 'next-auth/providers/google';
 import GitHub from 'next-auth/providers/github';
 
 import Credentials from 'next-auth/providers/credentials';
-import bcrypt from 'bcrypt';
+// import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import { db } from '@/lib/db';
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
@@ -79,14 +80,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         console.log(user, 'user');
         try {
           const { email, image } = user;
-          console.log(email, image);
+          // console.log(email, image);
           const alreadyUser = await db.user.findUnique({
             where: {
               email: email || '',
             },
           });
           if (alreadyUser) {
-            console.log(alreadyUser, 'alreadyUser');
+            // console.log(alreadyUser, 'alreadyUser');
             await db.user.update({
               where: {
                 email: email || '',

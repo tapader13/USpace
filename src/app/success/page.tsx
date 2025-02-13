@@ -51,7 +51,7 @@ const ThankYou = () => {
     const fetchPaymentStatus = async () => {
       try {
         const response = await axios.get(
-          `https://space-booking-psi.vercel.app/api/orders/${orderId}`
+          `http://localhost:3000/api/orders/${orderId}`
         );
         clearCart();
         setData(response.data.data);

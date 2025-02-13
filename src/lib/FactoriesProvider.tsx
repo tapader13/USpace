@@ -23,7 +23,7 @@ const FactoriesProvider = ({
   }, [propsData]);
 
   return (
-    <SessionContext.Provider value={session}>
+    <SessionContext.Provider value={{ session, setSession }}>
       {children}
     </SessionContext.Provider>
   );

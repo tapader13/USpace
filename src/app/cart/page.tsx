@@ -86,7 +86,7 @@ const CartPage = () => {
       });
 
       const checkoutSession = await axios.post(
-        'https://space-booking-psi.vercel.app/api/checkout-sessions',
+        'http://localhost:3000/api/checkout-sessions',
         {
           items: cart,
           email: user?.email,

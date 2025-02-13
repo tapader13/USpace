@@ -1,17 +1,23 @@
 'use client';
 
+import { useXSession } from '@/lib/FactoriesProvider';
 import { signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
 const AuthManage = () => {
   const { data: session, status } = useSession();
   console.log(session, 'seslay 12');
+  const { session: ses, setSession } = useXSession();
+  console.log(ses, 'seslay 14');
   const router = useRouter();
   return (
     <>
-      {session?.user?.email ? (
+      {session?.user?.email || ses?.user?.email ? (
         <button
-          onClick={() => signOut()}
+          onClick={() => {
+            setSession(null);
+            signOut();
+          }}
           className='uppercase mr-2 bg-red-500 text-second font-extrabold px-5 py-3 text-[16px]'
         >
           LogOut

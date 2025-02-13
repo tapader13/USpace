@@ -22,7 +22,7 @@
     "@radix-ui/react-toast": "^1.2.2",
     "@stripe/stripe-js": "^4.8.0",
     "axios": "^1.7.7",
-    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",
     "cloudinary": "^2.5.1",
     "clsx": "^2.1.1",
@@ -50,6 +50,7 @@
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
+    "@types/bcryptjs": "^2.4.6",
     "@types/formidable": "^3.4.5",
     "@types/node": "^20",
     "@types/quill": "^2.0.14",
