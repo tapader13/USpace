@@ -1,73 +1,87 @@
 # 🏠 Uspace - Space Booking Platform
 
-## Overview  
+## Overview
+
 **Uspace** is a modern space booking platform where users can browse, search, and rent spaces seamlessly. From category-based searches to secure Stripe payments, Uspace provides a smooth experience for both users and space owners.
 
 ---
 
-## 📸 Screenshot  
-![Uspace Screenshot](https://i.postimg.cc/2jGrrsmx/Screenshot-2025-02-10-002809.png) 
+## 📸 Screenshot
+
+![Uspace Screenshot](https://i.postimg.cc/2jGrrsmx/Screenshot-2025-02-10-002809.png)
 
 ---
 
-## 🛠️ Technologies Used  
+## 🛠️ Technologies Used
 
-### **Frontend & Backend**  
-- Next.js 14  
-- React.js 18  
-- Tailwind CSS  
-- Framer Motion (for animations)  
+### **Frontend & Backend**
 
-### **State Management**  
-- Zustand (lightweight global state management)  
+- Next.js 14
+- React.js 18
+- Tailwind CSS
+- Framer Motion (for animations)
 
-### **Authentication**  
-- NextAuth.js with @auth/prisma-adapter  
-- Social login support  
+### **State Management**
 
-### **Database & ORM**  
-- MongoDB with Mongoose  
-- Prisma ORM  
+- Zustand (lightweight global state management)
 
-### **File & Media Storage**  
-- Cloudinary (for images & videos)  
+### **Authentication**
 
-### **Payment Integration**  
-- Stripe with webhooks  
+- NextAuth.js with @auth/prisma-adapter
+- Social login support
 
-### **Others**  
-- Mailtrap (for email confirmations)  
-- Radix UI components  
+### **Database & ORM**
 
----
+- MongoDB with Mongoose
+- Prisma ORM
 
-## 🚀 Core Features  
+### **File & Media Storage**
 
-✔️ **Space Booking & Management**  
-- Browse spaces based on categories (e.g., offices, warehouses, studios).  
-- Search for spaces by name.  
-- Filter results by price, category, or name.  
-- View detailed space pages with images, videos, and descriptions.  
+- Cloudinary (for images & videos)
 
-✔️ **Seamless Booking Process**  
-- Choose start and end dates for rental.  
-- Add selected spaces to the cart before checkout.  
-- Secure Stripe payments with webhook integration.  
+### **Payment Integration**
 
-✔️ **Authentication & User Management**  
-- Social login for easy access.  
-- Users can add new spaces, upload images & videos via Cloudinary.  
-- After login, users can manage their bookings and spaces.  
+- Stripe with webhooks
 
-✔️ **Order Confirmation & Email Notifications**  
-- Upon successful payment, users receive a confirmation email.  
-- View past orders with payment status.  
+### **Others**
+
+- Mailtrap (for email confirmations)
+- Radix UI components
 
 ---
 
-## 📦 Dependencies  
+## 🚀 Core Features
 
-### **Production Dependencies**  
+✔️ **Space Booking & Management**
+
+- Browse spaces based on categories (e.g., offices, warehouses, studios).
+- Search for spaces by name.
+- Filter results by price, category, or name.
+- View detailed space pages with images, videos, and descriptions.
+
+✔️ **Seamless Booking Process**
+
+- Choose start and end dates for rental.
+- Add selected spaces to the cart before checkout.
+- Secure Stripe payments with webhook integration.
+
+✔️ **Authentication & User Management**
+
+- Social login for easy access.
+- Users can add new spaces, upload images & videos via Cloudinary.
+- After login, users can manage their bookings and spaces.
+
+✔️ **Order Confirmation & Email Notifications**
+
+- Upon successful payment, users receive a confirmation email.
+- View past orders with payment status.
+
+---
+
+## 📦 Dependencies
+
+### **Production Dependencies**
+
 ```json
 {
   "@auth/prisma-adapter": "^2.7.0",
@@ -111,21 +125,25 @@
 
 ---
 
-## 🛠️ Getting Started (Run Locally)  
+## 🛠️ Getting Started (Run Locally)
 
-### 1️⃣ Clone the Repository  
+### 1️⃣ Clone the Repository
+
 ```sh
 git clone https://github.com/tapader13/USpace.git
 cd USpace
 ```
 
-### 2️⃣ Install Dependencies  
+### 2️⃣ Install Dependencies
+
 ```sh
 npm install
 ```
 
-### 3️⃣ Set Up Environment Variables  
-Create a `.env` file in the root directory and add the following:  
+### 3️⃣ Set Up Environment Variables
+
+Create a `.env` file in the root directory and add the following:
+
 ```env
 NEXT_PUBLIC_STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
 NEXT_PUBLIC_URl=https://space-booking-psi.vercel.app/
@@ -141,36 +159,40 @@ NEXT_PUBLIC_STRIPE_SECRET_KEY=your_stripe_secret_key
 NEXT_PUBLIC_MAIL_TOKEN=your_mailtrap_token
 ```
 
-### 4️⃣ Run Migrations (For Prisma)  
+### 4️⃣ Run Migrations (For Prisma)
+
 ```sh
 npx prisma migrate dev --name init
 ```
 
-### 5️⃣ Start the Development Server  
+### 5️⃣ Start the Development Server
+
 ```sh
 npm run dev
 ```
 
-### 6️⃣ Open in Browser  
-Visit **[http://localhost:3000](http://localhost:3000)** to see the app in action.
+### 6️⃣ Open in Browser
+
+Visit **[https://space-booking-psi.vercel.app](https://space-booking-psi.vercel.app)** to see the app in action.
 
 ---
 
-## 🔗 Live Demo & Resources  
+## 🔗 Live Demo & Resources
+
 🚀 **Live Project:** [Uspace Live](https://space-booking-psi.vercel.app/)
 
 ---
 
-## 🤝 Contributing  
-Contributions are always welcome!  
+## 🤝 Contributing
 
-1. Fork the repository  
-2. Create a new branch (`git checkout -b feature-name`)  
-3. Commit your changes (`git commit -m 'Add new feature'`)  
-4. Push to the branch (`git push origin feature-name`)  
-5. Open a Pull Request  
+Contributions are always welcome!
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature-name`)
+3. Commit your changes (`git commit -m 'Add new feature'`)
+4. Push to the branch (`git push origin feature-name`)
+5. Open a Pull Request
 
 ---
 
-⭐ **Like this project?** Give it a star on GitHub!  
-
+⭐ **Like this project?** Give it a star on GitHub!
