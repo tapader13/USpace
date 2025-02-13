@@ -1,6 +1,6 @@
 'use client';
 
-import { useSession } from 'next-auth/react';
+import { signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 
 const AuthManage = () => {
@@ -11,7 +11,7 @@ const AuthManage = () => {
     <>
       {session?.user?.email ? (
         <button
-          onClick={() => router.push('/login')}
+          onClick={() => signOut()}
           className='uppercase mr-2 bg-red-500 text-second font-extrabold px-5 py-3 text-[16px]'
         >
           LogOut
