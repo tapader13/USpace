@@ -23,7 +23,7 @@ const PopularLocation = async () => {
             Our most popular locations
           </h1>
         </div>
-        <div className='grid sm:grid-cols-4 grid-cols-1 gap-4'>
+        <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-cols-1 gap-4'>
           {allSpace?.slice(0, 8).map((space: any) => (
             <Link href={`/product/${space.id}`} key={space.id}>
               <div className='relative group  '>

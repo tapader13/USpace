@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 const Rental = () => {
   return (
     <div className='sm:w-10/12 mx-auto w-[95%] my-28'>
-      <div className='grid sm:grid-cols-2 grid-cols-1 gap-10 '>
+      <div className='grid lg:grid-cols-2 grid-cols-1 gap-10 '>
         <div className='relative'>
           <img className='w-full h-[600px]' src='/asset 26.jpeg' alt='' />
           <div className='absolute bg-black/60 w-[250px] bottom-0 right-0'>
