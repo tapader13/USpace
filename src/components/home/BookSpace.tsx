@@ -23,7 +23,7 @@ const BookSpace = async () => {
             Book a space that suits you
           </h1>
         </div>
-        <div className='grid sm:grid-cols-4 grid-cols-1 gap-4'>
+        <div className='grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-cols-1 gap-4'>
           {allSpace?.map((space: any) => (
             <div className='relative group' key={space.id}>
               <img className='w-full h-[250px]' src={space.image[0]} alt='' />

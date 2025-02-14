@@ -47,7 +47,7 @@ const Navbar = ({ sticky }: { sticky: boolean }) => {
           <AuthManage />
           <Link href={`/product-listing`}>
             <Button className='uppercase bg-third text-second font-extrabold px-5 py-3 text-[16px]'>
-              List your space
+              List space
             </Button>
           </Link>
         </div>

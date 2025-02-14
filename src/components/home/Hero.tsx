@@ -18,7 +18,7 @@ const Hero = () => {
     }
   };
   return (
-    <div className=' bg-center bg-bg-hero bg-cover bg-no-repeat h-[89vh] w-screen'>
+    <div className=' bg-center bg-bg-hero bg-cover bg-no-repeat h-[89vh] w-full'>
       <div className='w-10/12 mx-auto relative top-1/2 -translate-y-1/2'>
         <div className='w-fit'>
           <h1 className='text-5xl font-bold mb-5 text-second'>
