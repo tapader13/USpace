@@ -36,7 +36,7 @@ const ClientPart = () => {
           <h4 className='text-xl font-bold'>Rental Tents</h4>
         </div>
       </div>
-      <div className='grid sm:grid-cols-4 grid-cols-1 mt-16 gap-10 w-10/12 mx-auto'>
+      <div className='grid sm:grid-cols-3 lg:grid-cols-4 grid-cols-1 mt-16 gap-10 w-10/12 mx-auto'>
         <div className='hover:bg-[#fdf8f2] transition-all duration-300 hover:-translate-y-4 hover:shadow-lg'>
           <div className='relative overflow-hidden group'>
             <img src='/asset 29.jpeg' alt='' />
