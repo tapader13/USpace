@@ -27,7 +27,7 @@ const Navbar = ({ sticky }: { sticky: boolean }) => {
           />
         </div>
         <div>
-          <ul className='sm:flex items-center space-x-10 font-dm font-medium text-[17px] hidden '>
+          <ul className='md:flex items-center space-x-10 sm:space-x-4 lg:space-x-10 sm:mx-3 lg:mx-0 font-dm font-medium text-[17px] hidden '>
             <li>
               <Link href='/'>Home</Link>
             </li>
@@ -43,16 +43,16 @@ const Navbar = ({ sticky }: { sticky: boolean }) => {
           </ul>
         </div>
 
-        <div>
+        <div className='flex items-center space-x-2'>
           <AuthManage />
           <Link href={`/product-listing`}>
             <Button className='uppercase bg-third text-second font-extrabold px-5 py-3 text-[16px]'>
               List space
             </Button>
           </Link>
-        </div>
-        <div className='sm:hidden block'>
-          <NavvarSheet />
+          <div className='md:hidden flex'>
+            <NavvarSheet />
+          </div>
         </div>
       </div>
     </div>
