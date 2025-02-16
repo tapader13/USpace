@@ -20,7 +20,7 @@ const ProductDetails = ({ data }: { data: any }) => {
           </div>
         </div>
         <div className='sm:w-10/12 w-[95%] mx-auto'>
-          <div className='grid sm:grid-cols-12 grid-cols-1 gap-10 my-10'>
+          <div className='grid lg:grid-cols-12 grid-cols-1 gap-10 my-10'>
             <div className='sm:col-span-8 '>
               <h1 className='text-4xl font-semibold text-first'>
                 {data?.name}
@@ -49,7 +49,7 @@ const ProductDetails = ({ data }: { data: any }) => {
               </div>
               <hr className='mb-4 bg-first' />
               <h2 className='text-3xl font-semibold mb-6'>Awesome Features</h2>
-              <div className='grid grid-cols-2  gap-x-4 gap-y-5'>
+              <div className='grid grid-cols-1 sm:grid-cols-2  gap-x-4 gap-y-5'>
                 {data?.features?.map((feature: any, index: any) => (
                   <div className='flex items-center gap-4' key={index}>
                     <img
