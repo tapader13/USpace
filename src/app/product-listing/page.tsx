@@ -141,7 +141,7 @@ const ItemsPage = () => {
       });
       setLoading(true);
       const response = await axios.post(
-        'http://localhost:3000/api/items',
+        'https://space-booking-psi.vercel.app/api/items',
         formData
       );
       if (response.data.success) {

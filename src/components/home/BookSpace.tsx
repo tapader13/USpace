@@ -4,7 +4,9 @@ import React from 'react';
 
 const getAllSpace = async () => {
   try {
-    const response = await axios.get(`http://localhost:3000/api/items`);
+    const response = await axios.get(
+      `https://space-booking-psi.vercel.app/api/items`
+    );
     return response.data.data;
   } catch (error) {
     console.log(error);
