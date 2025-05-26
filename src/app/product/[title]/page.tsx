@@ -12,7 +12,7 @@ const ProductDetailsPage = () => {
     const getProductDetails = async () => {
       try {
         const response = await axios.get(
-          `https://space-booking-psi.vercel.app/api/item?title=${title}`
+          `http://localhost:3000/api/item?title=${title}`
         );
         console.log(response.data.data);
         setData(response.data.data);

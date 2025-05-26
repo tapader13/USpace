@@ -55,7 +55,7 @@ const SearchPage = () => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `https://space-booking-psi.vercel.app/api/search?title=${selectedTitle}&category=${selectedCategory}&price=${price}`
+          `http://localhost:3000/api/search?title=${selectedTitle}&category=${selectedCategory}&price=${price}`
         );
         setData(response.data.data);
       } catch (error) {

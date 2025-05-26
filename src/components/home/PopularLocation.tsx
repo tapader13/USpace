@@ -4,9 +4,7 @@ import { Button } from '../ui/button';
 import Link from 'next/link';
 const getAllSpace = async () => {
   try {
-    const response = await axios.get(
-      'https://space-booking-psi.vercel.app/api/items'
-    );
+    const response = await axios.get('http://localhost:3000/api/items');
     return response.data.data;
   } catch (error) {
     console.log(error);

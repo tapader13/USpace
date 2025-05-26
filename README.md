@@ -146,7 +146,7 @@ Create a `.env` file in the root directory and add the following:
 
 ```env
 NEXT_PUBLIC_STRIPE_WEBHOOK_SECRET=your_stripe_webhook_secret
-NEXT_PUBLIC_URl=https://space-booking-psi.vercel.app/
+NEXT_PUBLIC_URl=http://localhost:3000/
 DATABASE_URL=your_mongodb_connection_string
 AUTH_GOOGLE_ID=your_google_auth_client_id
 AUTH_GOOGLE_SECRET=your_google_auth_secret
@@ -173,13 +173,13 @@ npm run dev
 
 ### 6️⃣ Open in Browser
 
-Visit **[https://space-booking-psi.vercel.app](https://space-booking-psi.vercel.app)** to see the app in action.
+Visit **[http://localhost:3000](http://localhost:3000)** to see the app in action.
 
 ---
 
 ## 🔗 Live Demo & Resources
 
-🚀 **Live Project:** [Uspace Live](https://space-booking-psi.vercel.app/)
+🚀 **Live Project:** [Uspace Live](http://localhost:3000/)
 
 ---
 

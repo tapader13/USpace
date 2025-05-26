@@ -68,12 +68,12 @@ const CartPage = () => {
   const stripePromise = loadStripe(
     process.env.NEXT_PUBLIC_STRIPE_PUBLISABLE_KEY!
   );
-  console.log(session?.user, 'suser');
+  console.log(session?.session?.user, 'suser');
   const createStripeSession = async () => {
     const stripe = await stripePromise;
 
     try {
-      const user = session?.data?.user || session?.user;
+      const user = session?.data?.user || session?.session?.user;
       console.log(user, 'user');
       console.log(session?.user?.name, 'user2');
       if (!user) {
@@ -86,7 +86,7 @@ const CartPage = () => {
       });
 
       const checkoutSession = await axios.post(
-        'https://space-booking-psi.vercel.app/api/checkout-sessions',
+        'http://localhost:3000/api/checkout-sessions',
         {
           items: cart,
           email: user?.email,
